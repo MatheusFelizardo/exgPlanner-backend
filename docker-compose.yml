@@ -1,0 +1,6 @@
+version: "3.9"
+services:
+  explanner-backend:
+    build: .
+    ports:
+      - 3333:3333
