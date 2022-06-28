@@ -59,6 +59,7 @@ const commons = `
         userLogin(email: String!, password: String!): UserTokenResponse
         updateUser(id: ID!, name: String, email: String, password: String,  updated_at: Int): UserResponse
         deleteUser(id: ID!): UserResponse
+        getUserByToken(token: String): UserResponse
         saveInfo(user: String, country: String, currentBudget: String, expense: [String], missing: String, travelDate: String): InfoResponse
         updateInfo(id: ID!, country: String, currentBudget: String, expense: [String], missing: String, travelDate: String): InfoResponse
         deleteInfo(id: ID!): InfoResponse

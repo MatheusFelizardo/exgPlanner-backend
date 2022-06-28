@@ -5,6 +5,7 @@ import InfoModel from './models/Infos/infos'
 import {
     getAllUsers,
     getUserById,
+    getUserByToken,
     createUser,
     userLogin,
     updateUser,
@@ -24,6 +25,7 @@ export default {
     users: {
         getAllUsers,
         getUserById,
+        getUserByToken,
         createUser,
         userLogin,
         updateUser,

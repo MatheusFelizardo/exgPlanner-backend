@@ -11,6 +11,10 @@ export const getUserById = async (id: string) => {
     return await UserModel.findById(id);
 }
 
+export const getUserByToken = async ({token}: {token:string}) => {
+    return await UserModel.findOne({token})
+}
+
 export const createUser = async ({  name, email, password }: { name: string, email: string, password: string }) => {
     const salt = await bcrypt.genSalt(10)
     password = await bcrypt.hash(password, salt)

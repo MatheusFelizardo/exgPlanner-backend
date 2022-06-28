@@ -21,8 +21,6 @@ const userMutation = {
     userLogin: async ({ email, password  }: User, context: any) => {
         try {
             const user = await db.users.userLogin({ email, password })
-
-            console.log('user', user)
             return {
                 data: user,
                 ok: true,
@@ -84,6 +82,23 @@ const userMutation = {
                 error: error.message
             };
         }
+    },
+
+    getUserByToken: async({token}: {token: string}) => {
+    try {
+        const user = await db.users.getUserByToken({token})
+        return {
+            data: user,
+            ok: true,
+            error: ''
+        };
+    } catch (error: any) {
+        return {
+            data: null,
+            ok: false,
+            error: error.message
+        };
+    }
     }
 }
 
