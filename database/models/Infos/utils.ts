@@ -1,12 +1,12 @@
-import InfoModel from './infos';
+import InfoModel, { CoinsInterface, ExpenseInterface } from './infos';
 
 export interface InfoI { 
     user?: string, 
     country?: string, 
-    currentBudget?: string,
+    currentBudget?: CoinsInterface,
     updatedAt?: number, 
-    expense?: string[],
-    totalCost?: string, 
+    expense?: ExpenseInterface[],
+    totalCost?: CoinsInterface, 
     travelDate?: string 
 }
 

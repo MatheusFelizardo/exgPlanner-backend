@@ -1,4 +1,5 @@
 import db from '../../database'
+import { CoinsInterface, ExpenseInterface } from '../../database/models/Infos/infos';
 
 const infoMutation = {
     saveInfo: async ({  user, country, currentBudget, expense, totalCost, travelDate  }: Info, context: any) => {
@@ -66,13 +67,14 @@ const infoMutation = {
     }
 }
 
+
 interface Info {
     user?: string, 
     country?: string, 
-    currentBudget?: string,
+    currentBudget?: CoinsInterface,
     updatedAt?: number, 
-    expense?: string[],
-    totalCost?: string, 
+    expense?: ExpenseInterface[],
+    totalCost?: CoinsInterface, 
     travelDate?: string 
 }
 

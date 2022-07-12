@@ -10,16 +10,35 @@ const infoSchema: Schema = new Schema<IInfo>({
         required: true,
     },
     currentBudget: {
-        type: String,
-        required: true,
+        value: {
+            type: String,
+            required: true
+        },
+        coin: {
+            type: String,
+            default: 'USD'
+        }
     },
     expense: [{
-        type: String,
-        required: true,
+        type: {
+            type: String
+        },
+        description: {
+            type: String
+        },
+        value: {
+            type: String
+        }
     }],
     totalCost: {
-        type: String,
-        required: true,
+        value: {
+            type: String,
+            required: true
+        },
+        coin: {
+            type: String,
+            default: 'USD'
+        }
     },
     travelDate: {
         type: String,
@@ -31,13 +50,22 @@ const infoSchema: Schema = new Schema<IInfo>({
     }
 });
 
+export interface ExpenseInterface {
+    type: string
+    description: string
+    value: string
+}
+export interface CoinsInterface {
+    value: string
+    coin: string
+}
 export interface IInfo extends Document {
     _id: string;
     user: string;
     country: string;
-    currentBudget: string;
-    expense: string[];
-    totalCost: string;
+    currentBudget: CoinsInterface;
+    expense: ExpenseInterface[];
+    totalCost: CoinsInterface;
     travelDate: string;
     updatedAt: Date;
 }
