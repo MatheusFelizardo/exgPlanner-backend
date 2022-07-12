@@ -10,6 +10,7 @@ const userSchema = `
     }
 
     type UserToken {
+        _id: ID!
         name: String
         email: String
         token: String
