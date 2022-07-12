@@ -17,7 +17,7 @@ const infoSchema: Schema = new Schema<IInfo>({
         type: String,
         required: true,
     }],
-    missing: {
+    totalCost: {
         type: String,
         required: true,
     },
@@ -37,7 +37,7 @@ export interface IInfo extends Document {
     country: string;
     currentBudget: string;
     expense: string[];
-    missing: string;
+    totalCost: string;
     travelDate: string;
     updatedAt: Date;
 }

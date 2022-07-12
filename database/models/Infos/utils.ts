@@ -6,7 +6,7 @@ export interface InfoI {
     currentBudget?: string,
     updatedAt?: number, 
     expense?: string[],
-    missing?: string, 
+    totalCost?: string, 
     travelDate?: string 
 }
 
@@ -14,17 +14,17 @@ export const getInfoById = async (id: string) => {
     return await InfoModel.findById(id);
 }
 
-export const saveInfo = async ({  user, country, currentBudget, expense, missing, travelDate}: InfoI) => {
-    return await InfoModel.create({  user, country, currentBudget, expense, missing, travelDate });
+export const saveInfo = async ({  user, country, currentBudget, expense, totalCost, travelDate}: InfoI) => {
+    return await InfoModel.create({  user, country, currentBudget, expense, totalCost, travelDate });
 }
 
-export const updateInfo = async (id: string, { user, country, currentBudget, expense, missing, travelDate, updatedAt }:InfoI) => {
+export const updateInfo = async (id: string, { user, country, currentBudget, expense, totalCost, travelDate, updatedAt }:InfoI) => {
     const update:InfoI = {};
     if (user) update.user = user;
     if (country) update.country = country;
     if (currentBudget) update.currentBudget = currentBudget;
     if (expense) update.expense = expense;
-    if (missing) update.missing = missing;
+    if (totalCost) update.totalCost = totalCost;
     if (travelDate) update.travelDate = travelDate;
     update.updatedAt = updatedAt
     

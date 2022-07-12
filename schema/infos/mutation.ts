@@ -1,9 +1,9 @@
 import db from '../../database'
 
 const infoMutation = {
-    saveInfo: async ({  user, country, currentBudget, expense, missing, travelDate  }: Info, context: any) => {
+    saveInfo: async ({  user, country, currentBudget, expense, totalCost, travelDate  }: Info, context: any) => {
         try {
-            const info = await db.infos.saveInfo({  user, country, currentBudget, expense, missing, travelDate })
+            const info = await db.infos.saveInfo({  user, country, currentBudget, expense, totalCost, travelDate })
             return {
                 data: info,
                 ok: true,
@@ -17,9 +17,9 @@ const infoMutation = {
             };
         }
     },
-    updateInfo: async ({ id, user, country, currentBudget, expense, missing, travelDate }: Info & {id: string}, context: any) => {
+    updateInfo: async ({ id, user, country, currentBudget, expense, totalCost, travelDate }: Info & {id: string}, context: any) => {
         try {
-            const info = await db.infos.updateInfo(id, { user, country, currentBudget, expense, missing, travelDate, updatedAt: Date.now() })
+            const info = await db.infos.updateInfo(id, { user, country, currentBudget, expense, totalCost, travelDate, updatedAt: Date.now() })
             if (!info) {
                 return {
                     data: null,
@@ -72,7 +72,7 @@ interface Info {
     currentBudget?: string,
     updatedAt?: number, 
     expense?: string[],
-    missing?: string, 
+    totalCost?: string, 
     travelDate?: string 
 }
 

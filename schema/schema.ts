@@ -37,7 +37,7 @@ const infoSchema = `
         country: String, 
         currentBudget: String,
         expense: [String],
-        missing: String,
+        totalCost: String,
         travelDate: String
     }
 
@@ -60,8 +60,8 @@ const commons = `
         updateUser(id: ID!, name: String, email: String, password: String,  updated_at: Int): UserResponse
         deleteUser(id: ID!): UserResponse
         getUserByToken(token: String): UserResponse
-        saveInfo(user: String, country: String, currentBudget: String, expense: [String], missing: String, travelDate: String): InfoResponse
-        updateInfo(id: ID!, country: String, currentBudget: String, expense: [String], missing: String, travelDate: String): InfoResponse
+        saveInfo(user: String, country: String, currentBudget: String, expense: [String], totalCost: String, travelDate: String): InfoResponse
+        updateInfo(id: ID!, country: String, currentBudget: String, expense: [String], totalCost: String, travelDate: String): InfoResponse
         deleteInfo(id: ID!): InfoResponse
     }
 `
