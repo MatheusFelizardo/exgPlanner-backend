@@ -87,6 +87,7 @@ const commons = `
         deleteUser(id: ID!): UserResponse
         getUserByToken(token: String): UserResponse
         saveInfo(user: String, country: String, currentBudget: CoinSchemaInput, expense: [ExpenseI], totalCost: CoinSchemaInput, travelDate: String): InfoResponse
+        getInfoByUserId(id: String): InfoResponse
         updateInfo(id: ID!, country: String, currentBudget: String, expense: [ExpenseI], totalCost: String, travelDate: String): InfoResponse
         deleteInfo(id: ID!): InfoResponse
     }

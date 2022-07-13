@@ -14,6 +14,7 @@ import {
 
 import {
     getInfoById,
+    getInfoByUserId,
     saveInfo,
     updateInfo,
     deleteInfo
@@ -34,6 +35,7 @@ export default {
     InfoModel,
     infos: {
         getInfoById,
+        getInfoByUserId,
         saveInfo,
         updateInfo,
         deleteInfo

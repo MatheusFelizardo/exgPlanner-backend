@@ -18,9 +18,25 @@ const infoMutation = {
             };
         }
     },
-    updateInfo: async ({ id, user, country, currentBudget, expense, totalCost, travelDate }: Info & {id: string}, context: any) => {
+    getInfoByUserId: async (id: string ) => {
         try {
-            const info = await db.infos.updateInfo(id, { user, country, currentBudget, expense, totalCost, travelDate, updatedAt: Date.now() })
+            const info = await db.infos.getInfoByUserId(id)
+            return {
+                data: info,
+                ok: true,
+                error: ''
+            };
+        } catch (error: any) {
+            return {
+                data: null,
+                ok: false,
+                error: error.message
+            };
+        }
+    },
+    updateInfo: async ({ id }: {id: string }) => {
+        try {
+            const info = await db.infos.getInfoById(id)
             if (!info) {
                 return {
                     data: null,

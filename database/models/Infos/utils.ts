@@ -14,6 +14,10 @@ export const getInfoById = async (id: string) => {
     return await InfoModel.findById(id);
 }
 
+export const getInfoByUserId = async (userId: string) => {
+    return await InfoModel.findOne({userId});
+}
+
 export const saveInfo = async ({  user, country, currentBudget, expense, totalCost, travelDate}: InfoI) => {
     return await InfoModel.create({  user, country, currentBudget, expense, totalCost, travelDate });
 }
