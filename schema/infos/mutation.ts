@@ -18,9 +18,10 @@ const infoMutation = {
             };
         }
     },
-    getInfoByUserId: async (id: string ) => {
+    getInfoByUserId: async ({ id }: {id: string}) => {
         try {
             const info = await db.infos.getInfoByUserId(id)
+
             return {
                 data: info,
                 ok: true,
